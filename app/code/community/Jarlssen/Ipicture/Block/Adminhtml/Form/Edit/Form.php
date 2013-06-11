@@ -49,10 +49,10 @@ class Jarlssen_Ipicture_Block_Adminhtml_Form_Edit_Form extends Mage_Adminhtml_Bl
             'value' => $model->getIpictureAnnotationData(),
         ));
 
-        $fieldset->addType('extended_label','Jarlssen_Ipicture_Block_Adminhtml_Form_Edit_CustomIpicture');
+        $fieldset->addType('extended_image','Jarlssen_Ipicture_Block_Adminhtml_Form_Edit_CustomIpicture');
 
-        $fieldset->addField('mycustom_element', 'extended_label', array(
-            'label'         => 'My Custom Element Label',
+        $fieldset->addField('mycustom_element', 'extended_image', array(
+            'label'         => 'Banner',
             'name'          => 'mycustom_element',
             'required'      => false,
             'value'         => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'ipicture/home/'.$model->getIpictureImageUrl(),

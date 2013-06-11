@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* 
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the GNU LESSER GENERAL PUBLIC LICENSE (LGPL 3.0)
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade to newer
+* versions in the future.
+*
+* @category   Jarlssen
+* @package    Jarlssen_Ipicture
+* @copyright  Copyright (c) 1996-2013 Jarlssen GmbH (http://www.jarlssen.com)
+* @contacts   raffaele.pannisco@jarlssen.de
+* @license    http://www.gnu.org/copyleft/lesser.html  GNU LESSER GENERAL PUBLIC LICENSE (LGPL 3.0)
+*/ 
+-->
+<config>
+    <modules>
+        <Jarlssen_Ipicture>
+            <version>1.0.0</version>
+        </Jarlssen_Ipicture>
+    </modules>
+    <frontend>
+        <!-- 
+        setting frontend frontname
+        -->
+        <routers>
+            <ipicture>
+                <use>standard</use>
+                <args>
+                    <module>Jarlssen_Ipicture</module>
+                    <frontName>ipicture</frontName>
+                </args>
+            </ipicture>
+        </routers>
+        <!-- 
+        adding a frontend layout file
+        -->
+        <layout>
+            <updates>
+                <ipicture>
+                    <file>jarlssen/ipicture.xml</file>
+                </ipicture>
+            </updates>
+        </layout>
+    </frontend>
+    <!-- 
+    setting backend frontname
+    -->
+    <admin>
+        <routers>
+            <ipicture>
+                <use>admin</use>
+                <args>
+                    <module>Jarlssen_Ipicture</module>
+                    <frontName>ipicture</frontName>
+                </args>
+            </ipicture>
+        </routers>
+    </admin>
+    <adminhtml>
+        <!-- 
+        adding a menu with one child item
+        -->
+        <menu>
+            <ipicture module="ipicture">
+                <title>Jarlssen</title>
+                <sort_order>999</sort_order>               
+                <children>
+                    <banner module="ipicture">
+                        <title>Ipicture</title>
+                        <sort_order>0</sort_order>
+                        <action>ipicture/adminhtml_ipicture/edit</action>
+                    </banner>
+                </children>
+            </ipicture>
+        </menu>
+        <!-- 
+        adding backend permission rules for ipicture menu and system items
+        -->
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <Jarlssen_Ipicture>
+                            <title>Jarlssen_Ipicture</title>
+                            <sort_order>1</sort_order>
+                        </Jarlssen_Ipicture>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ipicture>
+                                            <title>Ipicture Library</title>
+                                        </ipicture>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <!-- 
+            adding a backend layout file
+            -->
+            <updates>
+                <ipicture>
+                    <file>ipicture.xml</file>
+                </ipicture>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <ipicture>
+                <class>Jarlssen_Ipicture_Model</class>
+                <resourceModel>ipicture_mysql4</resourceModel>
+            </ipicture>
+            <ipicture_mysql4>
+                <class>Jarlssen_Ipicture_Model_Mysql4</class>
+                <!-- 
+                our custom table name is ipicture
+                -->
+                <entities>
+                    <ipicture>
+                        <table>ipicture</table>
+                    </ipicture>
+                </entities>
+            </ipicture_mysql4>
+        </models>
+        <resources>
+            <!-- 
+            adding a sql script for table inizialization and creation
+            -->
+            <ipicture_setup>
+                <setup>
+                    <module>Jarlssen_Ipicture</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ipicture_setup>
+            <ipicture_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ipicture_write>
+            <ipicture_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ipicture_read>
+        </resources>
+        <!-- 
+        adding helper
+        -->
+        <helpers>
+            <ipicture>
+                <class>Jarlssen_Ipicture_Helper</class>
+            </ipicture>
+        </helpers>
+        <!-- 
+        and blocks
+        -->
+        <blocks>
+            <ipicture>
+                <class>Jarlssen_Ipicture_Block</class>
+            </ipicture>
+        </blocks>
+    </global>
+</config>

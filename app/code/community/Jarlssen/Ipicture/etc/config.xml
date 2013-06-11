@@ -119,6 +119,9 @@
     </adminhtml>
     <global>
         <models>
+            <!-- 
+                adding our model needed for our custom table
+            -->
             <ipicture>
                 <class>Jarlssen_Ipicture_Model</class>
                 <resourceModel>ipicture_mysql4</resourceModel>

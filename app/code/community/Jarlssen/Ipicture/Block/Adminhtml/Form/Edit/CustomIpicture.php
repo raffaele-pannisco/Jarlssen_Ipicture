@@ -32,8 +32,13 @@ class Jarlssen_Ipicture_Block_Adminhtml_Form_Edit_CustomIpicture extends Varien_
                 }
                 );
                 
-                jQuery( "#iPicture" ).iPicture({
-                    '.$model->getIpictureAnnotationData().',
+                jQuery( "#iPicture" ).iPicture({';
+                if($model->getIpictureAnnotationData()==NULL)
+                    $html .= 'animation: true, animationType: "ltr-slide", pictures:["picture1"], animationBg: "bgblack", button: "moreblack", moreInfos:{"picture1":[]}';
+                else
+                    $html .=$model->getIpictureAnnotationData();
+                    
+                 $html .=',
                     modify: true
                 });
                 jQuery("#picture1").css(
@@ -48,11 +53,6 @@ class Jarlssen_Ipicture_Block_Adminhtml_Form_Edit_CustomIpicture extends Varien_
         ';
         
         $html.= $this->getAfterElementHtml();
-        /*$html = $this->getBold() ? '<strong>' : '';
-        $html.= $this->getEscapedValue();
-        $html.= $this->getBold() ? '</strong>' : '';
-        $html.= $this->getAfterElementHtml();*/
-        
       
         return $html;
     }

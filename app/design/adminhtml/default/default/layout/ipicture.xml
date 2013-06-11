@@ -19,8 +19,5 @@
                 <name>jarlssen/ipicture/ipicture.css</name>
             </action>
         </reference>
-        <reference name="content">
-            <block type="core/template" name="ipicture" />
-        </reference>
     </ipicture_adminhtml_ipicture_edit>
 </layout> 

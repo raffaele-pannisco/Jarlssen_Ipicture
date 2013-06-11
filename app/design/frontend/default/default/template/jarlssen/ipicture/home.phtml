@@ -1,0 +1,38 @@
+<?php
+/**
+ * 
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU LESSER GENERAL PUBLIC LICENSE (LGPL 3.0)
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Jarlssen
+ * @package    Jarlssen_Ipicture
+ * @copyright  Copyright (c) 1996-2013 Jarlssen GmbH (http://www.jarlssen.com)
+ * @contacts   raffaele.pannisco@jarlssen.de
+ * @license    http://www.gnu.org/copyleft/lesser.html  GNU LESSER GENERAL PUBLIC LICENSE (LGPL 3.0)
+ * 
+ */
+?>
+
+<?php if (Mage::helper('ipicture')->isEnabled() == 1): ?>
+    <div id="iPicture">
+        <div class="slide">
+            <div id="picture1" style="background: url('<?php echo Mage::helper('ipicture')->getImage()?>') no-repeat scroll 0 0 #393737; width: <?php echo Mage::helper('ipicture')->getWidth()?>px; height: <?php echo Mage::helper('ipicture')->getHeight()?>px;position: relative; margin:0 auto;"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery( "#iPicture" ).iPicture({
+                <?php echo Mage::helper('ipicture')->getAnnotationData()?>
+            });
+        });
+    </script>
+   
+<?php endif; ?>

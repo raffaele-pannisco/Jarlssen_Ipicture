@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+* 
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the GNU LESSER GENERAL PUBLIC LICENSE (LGPL 3.0)
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade to newer
+* versions in the future.
+*
+* @category   Jarlssen
+* @package    Jarlssen_Ipicture
+* @copyright  Copyright (c) 1996-2013 Jarlssen GmbH (http://www.jarlssen.com)
+* @contacts   raffaele.pannisco@jarlssen.de
+* @license    http://www.gnu.org/copyleft/lesser.html  GNU LESSER GENERAL PUBLIC LICENSE (LGPL 3.0)
+-->
+<layout version="0.1.0">
+    <cms_index_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="ipicture/general/jqueryEnabled">
+                <script>Jarlssen/Jquery/jquery.min.js</script>
+            </action>
+            <action method="addJs" ifconfig="ipicture/general/jqueryEnabled">
+                <script>Jarlssen/Jquery/jquery.conflict.js</script>
+            </action>
+            <action method="addJs" ifconfig="ipicture/general/ipictureEnabled">
+                <script>Jarlssen/Jquery/jquery-ui-1.8.16.custom.min.js</script>
+            </action>
+            <action method="addJs" ifconfig="ipicture/general/ipictureEnabled">
+                <script>Jarlssen/Jquery/jquery.ipicture.js</script>
+            </action>
+            <action method="addItem" ifconfig="ipicture/general/ipictureEnabled">
+                <type>skin_css</type>
+                <name>css/jarlssen/ipicture/ipicture.css</name>
+            </action>
+        </reference>
+        <reference name="content">
+                <block type="core/template" name="default_home_page" template="jarlssen/ipicture/home.phtml" />
+        </reference>
+    </cms_index_index>
+</layout>
